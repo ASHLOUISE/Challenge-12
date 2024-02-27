@@ -96,6 +96,9 @@ function mainPrompt() {
 
         } else if(choices === "ADD_ROLE") {
             addRole();
+            
+        } else if(choices === "REMOVE_ROLE") {
+            removeRole();
 
         } else if(choices === "ADD_DEPARTMENT") {
             addDepartment();
@@ -306,6 +309,25 @@ async function addRole() {
     console.log(`${role.title} has been added to the database`);
     mainPrompt();
 }
+
+async function removeRole() {
+    const [roles] = await db.findAllRoles();
+    const roleChoices = roles.map(({ id, title }) => ({
+        name: title,
+        value: id
+    }));
+    const { roleId } = await prompt({
+        type: "list",
+        name: "roleId",
+        message: "Which role would you like to remove?",
+        choices: roleChoices
+    });
+    await db.removeRole(roleId);
+    console.log("Role has been removed from the database");
+    mainPrompt();
+} 
+
+
 
 async function addDepartment() {
     const department = await prompt([
