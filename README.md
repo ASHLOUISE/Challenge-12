@@ -12,12 +12,12 @@
 
 
 ### Installation
-- 1.Clone this repository to your local machine.
-- 2.Navigate to the project directory.
-- 3.Install dependencies by running npm install.
-- 4.Set up your MySQL database by executing the provided SQL schema and sample data in schema.sql.
-- 5.Create a .env file in the root directory and provide your MySQL database configuration:
-- ![alt text](image.png)
+- 1. Clone this repository to your local machine.
+- 2. Navigate to the project directory.
+- 3. Install dependencies by running npm install.
+- 4. Set up your MySQL database by executing the provided SQL schema and sample data in schema.sql.
+- 5. Create a .env file in the root directory and provide your MySQL database configuration:
+-  ![alt text](image.png)
 
 
 
