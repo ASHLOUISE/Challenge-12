@@ -81,6 +81,11 @@ DB.prototype.createRole = async function(role) {
     return data;
 }
 
+DB.prototype.removeRole = async function(roleId) {
+    const data = await this.connection.promise().query("DELETE FROM role WHERE id = ?", roleId);
+    return data;
+}
+
 DB.prototype.createNewDepartment = async function(department) {
     const data = await this.connection.promise().query("INSERT INTO department SET ?", department);
     return data;

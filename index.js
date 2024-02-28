@@ -50,6 +50,10 @@ function mainPrompt() {
                     value: "ADD_ROLE"
                 },
                 {
+                    name: "Remove Role",
+                    value: "REMOVE_ROLE"
+                },
+                {
                     name: "Add Department",
                     value: "ADD_DEPARTMENT"
                 },
@@ -96,7 +100,7 @@ function mainPrompt() {
 
         } else if(choices === "ADD_ROLE") {
             addRole();
-            
+
         } else if(choices === "REMOVE_ROLE") {
             removeRole();
 
@@ -157,7 +161,9 @@ async function viewEmployeesByManager() {
             type: "list",
             name: "managerId",
             message: "Which employee's manager would you like to see?",
-            choices: employeeChoices}]).then(async (response) => {
+            choices: employeeChoices
+        }
+    ]).then(async (response) => {
                 const [rows] = await db.findAllEmployeesByManager(response.managerId);
                 console.table(rows);
             }).then(() => mainPrompt());
@@ -327,8 +333,6 @@ async function removeRole() {
     mainPrompt();
 } 
 
-
-
 async function addDepartment() {
     const department = await prompt([
         {
@@ -336,7 +340,7 @@ async function addDepartment() {
             message: "What is the name of the department?"
         }
     ]);
-    await db.createDepartment(department);
+    await db.createNewDepartment(department);
     console.log(`${department.name} has been added to the database`);
     mainPrompt();
 }
