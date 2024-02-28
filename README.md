@@ -12,12 +12,12 @@
 
 
 ### Installation
-- 1.Clone this repository to your local machine.
-- 2.Navigate to the project directory.
-- 3.Install dependencies by running npm install.
-- 4.Set up your MySQL database by executing the provided SQL schema and sample data in schema.sql.
-- 5.Create a .env file in the root directory and provide your MySQL database configuration:
-- ![alt text](image.png)
+- Clone this repository to your local machine.
+- Navigate to the project directory.
+- Install dependencies by running npm install.
+- Set up your MySQL database by executing the provided SQL schema and sample data in schema.sql.
+- Create a .env file in the root directory and provide your MySQL database configuration:
+-  ![alt text](image.png)
 
 
 
@@ -44,9 +44,9 @@ Once the application starts, you'll be presented with a series of prompts to int
 ### Database Schema
 The database schema includes three tables:
 
-- 1. department: Stores department information.
-- 2. role: Stores role information with a reference to the department.
-- 3. employee: Stores employee information with references to their role and manager.
+- `department`: Stores department information.
+- `role`: Stores role information with a reference to the department.
+- `employee`: Stores employee information with references to their role and manager.
 
 
 ### Video Demo
