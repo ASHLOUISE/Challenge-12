@@ -44,9 +44,9 @@ Once the application starts, you'll be presented with a series of prompts to int
 ### Database Schema
 The database schema includes three tables:
 
-- 1. department: Stores department information.
-- 2. role: Stores role information with a reference to the department.
-- 3. employee: Stores employee information with references to their role and manager.
+- `department`: Stores department information.
+- `role`: Stores role information with a reference to the department.
+- `employee`: Stores employee information with references to their role and manager.
 
 
 ### Video Demo
