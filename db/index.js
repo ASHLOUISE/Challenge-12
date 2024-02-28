@@ -36,14 +36,28 @@ DB.prototype.findAllDepartments = async function() {
 }
 
 DB.prototype.findAllPossibleManagers = async function(employeeId) {
-    const data = await this.connection.promise().query(`SELECT 
-    id, 
-    first_name, 
-    last_name 
-    FROM employee
-    WHERE id != ?;`, employeeId);
+    let query = `
+        SELECT id, first_name, last_name 
+        FROM employee`;
+
+    if (employeeId) {
+        query += ` WHERE id != ?`;
+    }
+
+    const data = await this.connection.promise().query(query, [employeeId]);
     return data;
 }
+
+DB.prototype.findAllEmployeesByManager = async function(managerId) {
+    const data = await this.connection.promise().query(`
+        SELECT id, first_name, last_name 
+        FROM employee
+        WHERE manager_id = ?;
+    `, managerId);
+    return data;
+}
+
+
 
 DB.prototype.createEmployee = async function(employee) {
     const data = await this.connection.promise().query("INSERT INTO employee SET ?", employee)

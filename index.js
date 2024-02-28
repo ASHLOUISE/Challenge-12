@@ -69,45 +69,45 @@ function mainPrompt() {
         
         }
     ]).then((response) => {
-        let choices = response.choices;
+        let choice = response.choices;
         
-        if(choices === "VIEW_EMPLOYEES") {
+        if(choice === "VIEW_EMPLOYEES") {
             viewEmployees();
 
-        } else if(choices === "VIEW_EMPLOYEES_BY_DEPARTMENT") {
+        } else if(choice === "VIEW_EMPLOYEES_BY_DEPARTMENT") {
             viewEmployeesByDepartment();
 
-        } else if(choices === "VIEW_DEPARTMENTS") {
+        } else if(choice === "VIEW_DEPARTMENTS") {
             viewDepartments();
 
-        } else if(choices === "VIEW_EMPLOYEES_BY_MANAGER") {
+        } else if(choice === "VIEW_EMPLOYEES_BY_MANAGER") {
             viewEmployeesByManager();
 
-        } else if(choices === "ADD_EMPLOYEE") {
+        } else if(choice === "ADD_EMPLOYEE") {
             addEmployee();
 
-        } else if(choices === "REMOVE_EMPLOYEE") {
+        } else if(choice === "REMOVE_EMPLOYEE") {
             removeEmployee();
 
-        } else if(choices === "UPDATE_EMPLOYEE_ROLE") {
+        } else if(choice === "UPDATE_EMPLOYEE_ROLE") {
             updateEmployeeRole();
         }
-        else if(choices === "UPDATE_EMPLOYEE_MANAGER") {
+        else if(choice === "UPDATE_EMPLOYEE_MANAGER") {
             updateEmployeeManager();
 
-        } else if(choices === "VIEW_ROLES") {
+        } else if(choice === "VIEW_ROLES") {
             viewRoles();
 
-        } else if(choices === "ADD_ROLE") {
+        } else if(choice === "ADD_ROLE") {
             addRole();
 
-        } else if(choices === "REMOVE_ROLE") {
+        } else if(choice === "REMOVE_ROLE") {
             removeRole();
 
-        } else if(choices === "ADD_DEPARTMENT") {
+        } else if(choice === "ADD_DEPARTMENT") {
             addDepartment();
 
-        } else if(choices === "REMOVE_DEPARTMENT") {
+        } else if(choice === "REMOVE_DEPARTMENT") {
             removeDepartment();
         }
         else {
@@ -164,8 +164,8 @@ async function viewEmployeesByManager() {
             choices: employeeChoices
         }
     ]).then(async (response) => {
-                const [rows] = await db.findAllEmployeesByManager(response.managerId);
-                console.table(rows);
+                const [employees] = await db.findAllEmployeesByManager(response.managerId);
+                console.table(employees);
             }).then(() => mainPrompt());
 }
 

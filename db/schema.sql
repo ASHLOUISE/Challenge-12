@@ -41,6 +41,7 @@ CREATE TABLE employee (
     role_id INT NOT NULL,
     INDEX role_ind (role_id),
     CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE CASCADE,
+    is_manager BOOLEAN DEFAULT FALSE,
     manager_id INT,
     INDEX manager_ind (manager_id),
     CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
